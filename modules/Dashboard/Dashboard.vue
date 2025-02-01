@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // import DataTable from "~/components/ui/DataTable/DataTable.vue";
 import Card from "~/components/ui/Card/Card.vue";
 </script>

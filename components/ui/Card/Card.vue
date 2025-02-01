@@ -12,7 +12,7 @@ const getContentValue = (content: string) => {
 <template>
   <div class="flex flex-wrap lg:flex-nowrap gap-6">
     <div
-      class="card bg-base-100 w-full shadow-xl mt-8 p-4 hover:animate-bounce hover:cursor-pointer transition-all duration-1000"
+      class="card bg-base-100 w-full shadow-xl mt-8 p-4 hover:animate-pulse hover:cursor-pointer hover:outline-2 hover:outline-offset-2 hover:outline-solid transition-all duration-1000"
       v-for="card in CARD_OPTIONS"
       :key="card.title"
     >

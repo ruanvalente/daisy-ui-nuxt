@@ -1,13 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import Navbar from "@/components/ui/NavBar/NavBar.vue";
 import Drawer from "~/components/ui/Drawer/Drawer.vue";
 </script>
 
 <template>
-  <main>
+  <div>
     <Navbar />
     <Drawer>
       <slot />
     </Drawer>
-  </main>
+  </div>
 </template>

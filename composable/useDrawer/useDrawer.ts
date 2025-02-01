@@ -1,4 +1,4 @@
-export const userDrawer = () => {
+export const useDrawer = () => {
   const drawerOpen = useState("drawerOpen", () => false);
   const updateDrawerState = () => {
     const isMediumOrLarger = window.innerWidth >= 768;

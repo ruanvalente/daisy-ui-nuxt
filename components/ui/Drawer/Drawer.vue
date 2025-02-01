@@ -38,10 +38,10 @@ const drawerOpen = userDrawer();
 </style> -->
 
 <script setup>
-import { userDrawer } from "~/composable/useDrawer/userDrawer";
+import { useDrawer } from "~/composable/useDrawer/useDrawer";
 import { DRAWER_CONFIG } from "~/constants/Drawer/Drawer";
 
-const drawerOpen = userDrawer();
+const drawerOpen = useDrawer();
 </script>
 
 <template>
