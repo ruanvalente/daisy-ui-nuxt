@@ -10,21 +10,21 @@ const getContentValue = (content: string) => {
 </script>
 
 <template>
-  <div class="flex gap-6">
+  <div class="flex flex-wrap lg:flex-nowrap gap-6">
     <div
-      class="card card-ui bg-base-100 w-96 shadow-xl mt-8 p-4"
+      class="card bg-base-100 w-full shadow-xl mt-8 p-4 hover:animate-bounce hover:cursor-pointer transition-all duration-1000"
       v-for="card in CARD_OPTIONS"
       :key="card.title"
     >
       <div class="flex items-center justify-between">
-        <span class="flex text-gray-300 text-2xl font-medium">{{
+        <span class="text-gray-300 text-base lg:text-2xl font-medium">{{
           card.title
         }}</span>
-        <span class="flex justify-end"><i :class="card.icon"></i></span>
+        <span><i :class="card.icon"></i></span>
       </div>
       <div class="flex flex-col">
-        <p class="py-2 font-bold">{{ card.value }}</p>
-        <p>
+        <p class="py-2 font-bold text-base">{{ card.value }}</p>
+        <p class="text-base">
           <strong class="text-green-400">{{
             getContentValue(card.content).value
           }}</strong
@@ -34,15 +34,3 @@ const getContentValue = (content: string) => {
     </div>
   </div>
 </template>
-
-<style scoped lang="scss">
-.card-ui {
-  width: 100%;
-  transition: all 0.5s;
-  cursor: pointer;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-}
-</style>
