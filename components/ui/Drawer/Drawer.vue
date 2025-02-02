@@ -1,47 +1,10 @@
-<!-- <script setup>
-import { userDrawer } from "~/composable/useDrawer/userDrawer";
-const drawerOpen = userDrawer();
-</script>
-
-<template>
-  <Transition name="slide">
-    <div class="">
-      <div class="drawer lg:drawer-open" v-if="drawerOpen">
-        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-        <div class="drawer-side">
-          <label
-            for="my-drawer-2"
-            aria-label="close sidebar"
-            class="drawer-overlay"
-          ></label>
-          <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-4">
-            <li><a>Sidebar Item 1</a></li>
-            <li><a>Sidebar Item 2</a></li>
-          </ul>
-        </div>
-      </div>
-      <slot />
-    </div>
-  </Transition>
-</template>
-
-<style scoped>
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.2s ease-in-out;
-}
-
-.slide-enter-from,
-.slide-leave-to {
-  transform: translateX(-100%);
-}
-</style> -->
-
-<script setup>
+<script setup lang="ts">
+import { useRouter } from "vue-router";
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 import { DRAWER_CONFIG } from "~/constants/Drawer/Drawer";
 
 const drawerOpen = useDrawer();
+const router = useRouter();
 </script>
 
 <template>
@@ -58,9 +21,17 @@ const drawerOpen = useDrawer();
           class="drawer-overlay"
           @click="drawerOpen = false"
         ></label>
-        <ul class="menu bg-base-100 text-base-content min-h-full w-80 p-4">
+        <ul
+          class="menu bg-base-100 text-base-content min-h-full w-full lg:w-80 p-4"
+        >
           <li class="py-2" v-for="item in DRAWER_CONFIG" :key="item.name">
-            <NuxtLink :href="item.to">
+            <NuxtLink
+              :to="item.to"
+              :class="{
+                'bg-base-300': router.currentRoute.value.path === item.to,
+                'hover:bg-gray-200': router.currentRoute.value.path !== item.to,
+              }"
+            >
               <i :class="item.icon" style="color: black"></i>
               <span class="text-base font-normal">{{ item.name }}</span>
             </NuxtLink>
