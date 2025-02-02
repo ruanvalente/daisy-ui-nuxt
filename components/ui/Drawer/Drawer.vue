@@ -70,8 +70,8 @@ const drawerOpen = useDrawer();
     </div>
 
     <div
-      class="flex-1 p-4 transition-all duration-500"
-      :class="{ 'pl-10': drawerOpen, 'pl-8': !drawerOpen }"
+      class="flex-1 px-8 transition-all duration-500"
+      :class="{ 'pl-8': !drawerOpen }"
     >
       <slot />
     </div>
