@@ -7,7 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "lint": "biome lint",
+    "format": "biome format",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.10.3",
@@ -20,7 +25,20 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@nuxt/test-utils": "^3.15.4",
+    "@types/jest": "^29.5.14",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitest/ui": "^3.0.4",
+    "@vue/test-utils": "^2.4.6",
+    "@vueuse/core": "^12.5.0",
+    "biome": "^0.3.3",
+    "happy-dom": "^16.8.1",
+    "husky": "^9.1.7",
+    "jsdom": "^26.0.0",
+    "lint-staged": "^15.4.3",
+    "playwright-core": "^1.50.1",
     "sass-embedded": "^1.83.4",
-    "tailwindcss": "^4.0.3"
+    "tailwindcss": "^4.0.3",
+    "vitest": "^3.0.4"
   }
 }
