@@ -9,6 +9,7 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "test": "vitest",
+    "test:run": "vitest run",
     "test:ui": "vitest --ui",
     "lint": "biome lint",
     "format": "biome format",
