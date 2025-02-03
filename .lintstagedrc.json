@@ -1,0 +1,4 @@
+{
+  "*.ts": ["biome lint --fix", "biome format"],
+  "*.vue": ["biome lint --fix", "biome format"]
+}
