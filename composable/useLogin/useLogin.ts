@@ -1,4 +1,6 @@
-import { useRouter, useCookie } from "#app";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+import { useCookie } from "#app";
 
 export const useLogin = () => {
   const loading = ref(false);

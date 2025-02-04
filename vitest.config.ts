@@ -28,6 +28,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
+      "#app": path.resolve(__dirname, "node_modules/nuxt/dist/app"),
       "~": path.resolve(__dirname, "./"),
       "@": path.resolve(__dirname, "src"),
       "~components": path.resolve(__dirname, "components"),
@@ -40,5 +41,8 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./tests/config/setup.ts",
+    deps: {
+      inline: ["vue"],
+    },
   },
 });
