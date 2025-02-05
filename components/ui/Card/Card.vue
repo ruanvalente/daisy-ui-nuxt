@@ -10,7 +10,7 @@ const getContentValue = (content: string) => {
 </script>
 
 <template>
-  <div class="flex flex-wrap lg:flex-nowrap gap-6 group">
+  <div class="flex flex-wrap lg:flex-nowrap gap-6 group px-4 lg:px-0">
     <div
       class="card bg-base-100 w-full shadow-xl mt-8 p-4 transition-all duration-300 cursor-pointer group-hover:opacity-50 hover:opacity-100 hover:scale-110"
       v-for="card in CARD_OPTIONS"

@@ -40,10 +40,7 @@ const router = useRouter();
       </div>
     </div>
 
-    <div
-      class="flex-1 px-8 transition-all duration-500"
-      :class="{ 'pl-8': !drawerOpen }"
-    >
+    <div class="flex-1 lg:px-8 transition-all duration-500">
       <slot />
     </div>
   </div>
