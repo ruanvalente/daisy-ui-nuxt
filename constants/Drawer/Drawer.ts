@@ -5,13 +5,18 @@ export const DRAWER_CONFIG = [
     to: "/",
   },
   {
-    name: "About",
-    icon: "pi pi-info",
-    to: "/about",
+    name: "Users",
+    icon: "pi pi-user",
+    to: "/users",
   },
   {
     name: "Contact",
     icon: "pi pi-envelope",
     to: "/contact",
+  },
+  {
+    name: "About",
+    icon: "pi pi-info",
+    to: "/about",
   },
 ];
