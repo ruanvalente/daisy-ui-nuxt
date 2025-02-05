@@ -14,7 +14,9 @@
               </div>
             </div>
             <div class="space-y-4">
-              <h3 class="text-2xl font-semibold">{{ about.name }}</h3>
+              <h3 class="text-2xl font-semibold dark:text-gray-950">
+                {{ about.name }}
+              </h3>
               <div class="badge bg-gray-950 text-white text-base px-4">
                 {{ about.role }}
               </div>
@@ -25,8 +27,10 @@
           </div>
         </div>
 
-        <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-xl font-semibold mb-6">Hard Skills</h4>
+        <div class="bg-white shadow-md rounded-lg p-6 my-4">
+          <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
+            Hard Skills
+          </h4>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div
               v-for="(skill, index) in about.hardSkills"
@@ -45,7 +49,9 @@
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-xl font-semibold mb-6">Soft Skills</h4>
+          <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
+            Soft Skills
+          </h4>
           <div class="space-y-4">
             <div
               v-for="(skill, index) in about.softSkills"
@@ -63,7 +69,9 @@
         </div>
 
         <div class="md:hidden bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-lg font-semibold mb-4">Experience Highlights</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
+            Experience Highlights
+          </h4>
           <div class="space-y-4">
             <div
               v-for="(highlight, index) in about.highlights"
@@ -77,7 +85,9 @@
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-xl font-semibold mb-4">About the Project</h4>
+          <h4 class="text-xl font-semibold mb-4 dark:text-gray-950">
+            About the Project
+          </h4>
           <div class="space-y-4">
             <p
               v-for="(paragraph, index) in about.projectDescription"
@@ -92,7 +102,9 @@
 
       <div class="space-y-6">
         <div class="hidden md:block bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-lg font-semibold mb-4">Experience Highlights</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
+            Experience Highlights
+          </h4>
           <div class="space-y-4">
             <div
               v-for="(highlight, index) in about.highlights"
@@ -106,7 +118,7 @@
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
-          <h4 class="text-lg font-semibold mb-4">Connect</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">Connect</h4>
           <div class="flex gap-4">
             <a
               v-for="social in about.socialLinks"

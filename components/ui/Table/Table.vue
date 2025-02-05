@@ -1,8 +1,8 @@
 <template>
   <div class="w-full shadow-md sm:rounded-lg">
     <!-- Versão Desktop -->
-    <div class="hidden md:block overflow-x-auto">
-      <table class="table w-full text-sm text-left rtl:text-right">
+    <div class="hidden md:block overflow-x-auto dark:text-gray-950">
+      <table class="table w-full text-sm text-left rtl:text-right dark:border">
         <thead>
           <tr>
             <th
@@ -17,9 +17,10 @@
         </thead>
         <tbody>
           <tr
-            v-for="item in items"
+            v-for="(item, index) in items"
             :key="item.id"
-            class="hover:cursor-pointer hover:bg-gray-100 transition-all border-b"
+            class="hover:cursor-pointer hover:bg-gray-100 transition-all"
+            :class="{ 'bg-gray-100': index % 2 === 0 }"
           >
             <td
               v-for="header in headers"
@@ -104,3 +105,9 @@ interface Props {
 
 defineProps<Props>();
 </script>
+
+<style lang="css" scoped>
+.table-row-even {
+  background-color: #f9fafb;
+}
+</style>

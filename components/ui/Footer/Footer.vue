@@ -1,5 +1,7 @@
 <template>
-  <footer class="footer footer-center p-4 bg-white text-base-content">
+  <footer
+    class="footer footer-center p-4 bg-white text-base-content dark:text-gray-950"
+  >
     <aside>
       <p>
         Copyright © {{ currentYear }} -

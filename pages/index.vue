@@ -8,8 +8,10 @@ definePageMeta({
 
 <template>
   <div>
-    <Typography as="h2" class="text-2xl lg:text-4xl mt-4">Dashboard</Typography>
-    <p class="mt-4">This is the dashboard page</p>
+    <Typography as="h2" class="text-2xl lg:text-4xl mt-4 dark:text-gray-950"
+      >Dashboard</Typography
+    >
+    <p class="mt-4 dark:text-gray-950">This is the dashboard page</p>
     <Dashboard class="mt-8" />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full dark:text-gray-950">
     <div class="grid md:grid-cols-3 gap-6">
       <div class="md:col-span-2 space-y-6">
         <div class="bg-white shadow-md rounded-lg p-6">
@@ -87,7 +87,7 @@
                 </p>
               </div>
               <select
-                class="select select-bordered"
+                class="select select-bordered dark:bg-gray-100"
                 :value="settings.profileVisibility"
                 @change="
                   updateSetting('profileVisibility', $event.target.value)

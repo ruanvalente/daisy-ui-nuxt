@@ -4,7 +4,7 @@
       <h3
         :class="[
           'font-bold mb-4 text-center',
-          { 'text-error': variant === 'danger' },
+          { 'text-error': variant === 'text-red-500' },
           titleSize,
         ]"
       >

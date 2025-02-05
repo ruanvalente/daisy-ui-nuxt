@@ -31,7 +31,11 @@
       :class="{ 'w-full md:w-auto': !showExtras }"
     >
       <button
-        class="btn btn-md bg-gray-900 text-white"
+        class="px-4 rounded btn-md text-white"
+        :class="{
+          'bg-gray-300 dark:btn-outline': currentPage === 1,
+          'bg-gray-950': currentPage !== 1,
+        }"
         :disabled="currentPage === 1"
         @click="$emit('update:currentPage', currentPage - 1)"
       >
@@ -42,14 +46,21 @@
         v-for="page in displayedPages"
         :key="page"
         class="btn btn-md"
-        :class="{ 'btn-active': page === currentPage }"
+        :class="{
+          'btn-active': page === currentPage,
+          'dark:bg-gray-100 dark:text-gray-950': page === currentPage,
+        }"
         @click="$emit('update:currentPage', page)"
       >
         {{ page }}
       </button>
 
       <button
-        class="btn btn-md bg-gray-900 text-white"
+        :class="{
+          'bg-gray-300 dark:btn-outline': currentPage === totalPages,
+          'bg-gray-950': currentPage !== totalPages,
+        }"
+        class="px-4 rounded btn-md text-white"
         :disabled="currentPage === totalPages"
         @click="$emit('update:currentPage', currentPage + 1)"
       >
