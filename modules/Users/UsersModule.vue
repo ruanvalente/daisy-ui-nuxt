@@ -1,17 +1,17 @@
 <template>
   <div class="lg:p-4">
-    <h2 class="text-2xl font-bold mb-4">User List</h2>
+    <h2 class="text-2xl font-bold mb-4 dark:text-gray-950">User List</h2>
     <Table :headers="headers" :items="paginatedUsers">
       <template #actions="{ item }">
         <div class="flex gap-2">
           <button
-            class="btn btn-md hover:bg-gray-900 hover:text-white"
+            class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
             @click="openEditModal(item)"
           >
             Edit
           </button>
           <button
-            class="btn btn-md hover:bg-gray-900 hover:text-white"
+            class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
             @click="openDeleteModal(item)"
           >
             Delete
@@ -75,10 +75,19 @@
         </div>
 
         <div class="flex justify-end gap-2">
-          <button type="submit" class="btn bg-gray-900 text-white">
+          <button
+            type="submit"
+            class="btn bg-gray-900 text-white dark:btn-outline dark:bg-transparent"
+          >
             Save Changes
           </button>
-          <button type="button" class="btn" @click="closeModal">Cancel</button>
+          <button
+            type="button"
+            class="btn dark:btn-outline"
+            @click="closeModal"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </Modal>
@@ -99,10 +108,12 @@
         >? This action cannot be undone.
       </p>
       <div class="flex justify-center gap-2">
-        <button class="btn btn-error" @click="confirmDelete">
+        <button class="btn btn-error dark:text-white" @click="confirmDelete">
           Yes, Delete
         </button>
-        <button class="btn" @click="closeDeleteModal">Cancel</button>
+        <button class="btn dark:btn-outline" @click="closeDeleteModal">
+          Cancel
+        </button>
       </div>
     </Modal>
   </div>

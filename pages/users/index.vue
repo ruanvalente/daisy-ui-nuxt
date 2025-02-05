@@ -9,8 +9,10 @@ definePageMeta({
 
 <template>
   <div>
-    <Typography as="h2" class="text-2xl lg:text-4xl mt-4">Users</Typography>
-    <p class="mt-4">This is the user page</p>
+    <Typography as="h2" class="text-2xl lg:text-4xl mt-4 dark:text-gray-950"
+      >Users</Typography
+    >
+    <p class="mt-4 dark:text-gray-950">This is the user page</p>
     <UsersModule class="mt-8" />
   </div>
 </template>

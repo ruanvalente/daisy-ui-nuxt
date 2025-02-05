@@ -29,10 +29,11 @@ const router = useRouter();
               :to="item.to"
               :class="{
                 'bg-base-300': router.currentRoute.value.path === item.to,
-                'hover:bg-gray-200': router.currentRoute.value.path !== item.to,
+                'dark:hover:bg-gray-950 dark:hover:text-white hover:bg-gray-200':
+                  router.currentRoute.value.path !== item.to,
               }"
             >
-              <i :class="item.icon" style="color: black"></i>
+              <i :class="item.icon" class="dark:text-white"></i>
               <span class="text-base font-normal">{{ item.name }}</span>
             </NuxtLink>
           </li>

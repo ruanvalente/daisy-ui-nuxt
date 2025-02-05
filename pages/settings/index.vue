@@ -35,7 +35,9 @@ const handleSetup2FA = () => {
 
 <template>
   <div class="lg:p-4">
-    <Typography as="h2" class="mt-4 text-2xl lg:text-4xl mb-6"
+    <Typography
+      as="h2"
+      class="mt-4 text-2xl lg:text-4xl mb-6 dark:text-gray-950"
       >Settings</Typography
     >
     <Settings

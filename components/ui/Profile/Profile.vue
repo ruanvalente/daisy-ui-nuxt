@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full">
+  <div class="w-full dark:text-gray-950">
     <div class="grid md:grid-cols-3 gap-6">
       <div class="md:col-span-2 bg-white shadow-md rounded-lg p-6 space-y-6">
         <div class="flex items-center space-x-4">
@@ -38,7 +38,7 @@
 
         <div class="flex justify-end pt-4 border-t">
           <button
-            class="btn btn-md hover:bg-gray-900 hover:text-white"
+            class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
             @click="openEditModal"
           >
             Edit Profile

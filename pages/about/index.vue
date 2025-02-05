@@ -68,7 +68,9 @@ const aboutInfo = {
 
 <template>
   <div class="lg:p-4">
-    <Typography as="h2" class="text-2xl lg:text-4xl mb-6">About</Typography>
+    <Typography as="h2" class="text-2xl lg:text-4xl mb-6 dark:text-gray-950"
+      >About</Typography
+    >
     <About :about="aboutInfo" />
   </div>
 </template>

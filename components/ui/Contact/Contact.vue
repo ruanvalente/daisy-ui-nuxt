@@ -3,41 +3,43 @@
     <div class="grid md:grid-cols-3 gap-6">
       <div class="md:col-span-2 space-y-6">
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h3 class="text-xl font-semibold mb-6">Send us a Message</h3>
+          <h3 class="text-xl font-semibold mb-6 dark:text-gray-950">
+            Send us a Message
+          </h3>
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <div class="grid md:grid-cols-2 gap-4 w-full">
               <div class="form-control w-full">
-                <label class="label w-full">
-                  <span class="label-text">Name</span>
+                <label class="label w-full my-2">
+                  <span class="label-text dark:text-gray-950">Name</span>
                 </label>
                 <input
                   v-model="formData.name"
                   type="text"
-                  class="input input-bordered w-full"
+                  class="input input-bordered w-full dark:bg-gray-100"
                   required
                 />
               </div>
 
               <div class="form-control w-full">
-                <label class="label w-full">
-                  <span class="label-text">Email</span>
+                <label class="label w-full my-2">
+                  <span class="label-text dark:text-gray-950">Email</span>
                 </label>
                 <input
                   v-model="formData.email"
                   type="email"
-                  class="input input-bordered w-full"
+                  class="input input-bordered w-full dark:bg-gray-100"
                   required
                 />
               </div>
             </div>
 
             <div class="form-control w-full">
-              <label class="label w-full">
-                <span class="label-text">Subject</span>
+              <label class="label w-full my-2">
+                <span class="label-text dark:text-gray-950">Subject</span>
               </label>
               <select
                 v-model="formData.subject"
-                class="select select-bordered w-full"
+                class="select select-bordered w-full dark:bg-gray-100"
                 required
               >
                 <option value="" disabled selected>Select a subject</option>
@@ -52,12 +54,12 @@
             </div>
 
             <div class="form-control w-full">
-              <label class="label w-full">
-                <span class="label-text">Message</span>
+              <label class="label w-full my-2">
+                <span class="label-text dark:text-gray-950">Message</span>
               </label>
               <textarea
                 v-model="formData.message"
-                class="textarea textarea-bordered h-32 w-full"
+                class="textarea textarea-bordered h-32 w-full dark:bg-gray-100"
                 required
               ></textarea>
             </div>
@@ -65,7 +67,7 @@
             <div class="flex justify-end">
               <button
                 type="submit"
-                class="btn btn-md hover:bg-gray-900 hover:text-white"
+                class="btn btn-md hover:bg-gray-900 hover:text-white dark:bg-transparent dark:text-gray-950"
               >
                 Send Message
               </button>
@@ -77,14 +79,18 @@
       <!-- Informações de Contato -->
       <div class="space-y-6">
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-lg font-semibold mb-4">Contact Information</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
+            Contact Information
+          </h4>
           <div class="space-y-4">
             <div
               v-for="(info, index) in contactInfo.officeLocations"
               :key="index"
               class="border-b last:border-b-0 pb-4 last:pb-0"
             >
-              <h5 class="font-medium mb-2">{{ info.name }}</h5>
+              <h5 class="font-medium mb-2 dark:text-gray-950">
+                {{ info.name }}
+              </h5>
               <div class="space-y-2 text-gray-600">
                 <p class="flex items-center gap-2">
                   <span class="i-heroicons-map-pin-20-solid"></span>
@@ -104,7 +110,9 @@
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-lg font-semibold mb-4">Business Hours</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
+            Business Hours
+          </h4>
           <div class="space-y-2">
             <div
               v-for="(hours, day) in contactInfo.businessHours"
@@ -118,7 +126,9 @@
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6">
-          <h4 class="text-lg font-semibold mb-4">Social Media</h4>
+          <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
+            Social Media
+          </h4>
           <div class="flex gap-4">
             <a
               v-for="social in contactInfo.socialMedia"
