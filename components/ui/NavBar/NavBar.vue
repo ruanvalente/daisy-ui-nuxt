@@ -1,13 +1,21 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import { onClickOutside } from "@vueuse/core";
+
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 import { useLogin } from "~/composable/useLogin/useLogin";
 
 const drawerOpen = useDrawer();
+const target = ref(null);
 const { handleSignOut } = useLogin();
+
+onClickOutside(target, () => {
+  drawerOpen.value = false;
+});
 </script>
 
 <template>
-  <div class="navbar bg-base-100 shadow">
+  <div class="navbar bg-base-100 shadow" ref="target">
     <div class="flex-1">
       <div
         tabindex="0"

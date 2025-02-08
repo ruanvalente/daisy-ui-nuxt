@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import { useRouter } from "vue-router";
+import { onClickOutside } from "@vueuse/core";
+
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 import { DRAWER_CONFIG } from "~/constants/Drawer/Drawer";
 
 const drawerOpen = useDrawer();
 const router = useRouter();
+const target = ref(null);
+
+onClickOutside(target, () => {
+  drawerOpen.value = false;
+});
 </script>
 
 <template>
@@ -19,7 +27,6 @@ const router = useRouter();
           for="my-drawer-2"
           aria-label="close sidebar"
           class="drawer-overlay"
-          @click="drawerOpen = false"
         ></label>
         <ul
           class="menu bg-base-100 text-base-content min-h-full w-full lg:w-80 p-4"

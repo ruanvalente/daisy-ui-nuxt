@@ -6,12 +6,14 @@ definePageMeta({
   middleware: "auth",
 });
 
+type ProfileVisibilityType = "public" | "private" | "contacts";
+
 const settings = ref({
   darkMode: false,
   compactMode: false,
   emailNotifications: true,
   pushNotifications: false,
-  profileVisibility: "public",
+  profileVisibility: "public" as ProfileVisibilityType,
   showActivityStatus: true,
   lastPasswordChange: "2024-01-15",
   twoFactorEnabled: false,

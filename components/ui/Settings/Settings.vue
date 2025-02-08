@@ -1,3 +1,57 @@
+<script setup lang="ts">
+import { useTheme } from "~/composable/useTheme/useTheme";
+import ToggleSwitch from "~/components/ui/ToggleSwitch/ToggleSwitch.vue";
+
+export interface Settings {
+  darkMode: boolean;
+  compactMode: boolean;
+  emailNotifications: boolean;
+  pushNotifications: boolean;
+  profileVisibility: "public" | "private" | "contacts";
+  showActivityStatus: boolean;
+  lastPasswordChange: string;
+  twoFactorEnabled: boolean;
+  storageUsed: string;
+  storageTotal: string;
+  storageUsedPercent: number;
+}
+
+interface Props {
+  settings: Settings;
+}
+
+const props = defineProps<Props>();
+const emit = defineEmits<{
+  (e: "update", setting: string, value: any): void;
+  (e: "setup2fa"): void;
+}>();
+
+const { isDarkMode, updateTheme } = useTheme();
+
+onMounted(() => {
+  emit("update", "darkMode", isDarkMode.value);
+});
+
+watch(isDarkMode, (newVal) => {
+  emit("update", "darkMode", newVal);
+});
+
+const formatDate = (date: string) => {
+  return new Date(date).toLocaleDateString("pt-BR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+const updateSetting = (setting: string, value: any) => {
+  if (setting === "darkMode") {
+    updateTheme(value);
+  }
+  emit("update", setting, value);
+};
+</script>
+
 <template>
   <div class="w-full dark:text-gray-950">
     <div class="grid md:grid-cols-3 gap-6">
@@ -12,11 +66,9 @@
                   Toggle between light and dark themes
                 </p>
               </div>
-              <input
-                type="checkbox"
-                class="toggle"
-                :checked="settings.darkMode"
-                @change="updateSetting('darkMode', $event.target.checked)"
+              <ToggleSwitch
+                :modelValue="settings.darkMode"
+                @update:modelValue="(value) => updateSetting('darkMode', value)"
               />
             </div>
 
@@ -27,11 +79,11 @@
                   Reduce spacing between elements
                 </p>
               </div>
-              <input
-                type="checkbox"
-                class="toggle"
-                :checked="settings.compactMode"
-                @change="updateSetting('compactMode', $event.target.checked)"
+              <ToggleSwitch
+                :modelValue="settings.compactMode"
+                @update:modelValue="
+                  (value) => updateSetting('compactMode', value)
+                "
               />
             </div>
           </div>
@@ -47,12 +99,10 @@
                   Receive updates and alerts via email
                 </p>
               </div>
-              <input
-                type="checkbox"
-                class="toggle"
-                :checked="settings.emailNotifications"
-                @change="
-                  updateSetting('emailNotifications', $event.target.checked)
+              <ToggleSwitch
+                :modelValue="settings.emailNotifications"
+                @update:modelValue="
+                  (value) => updateSetting('emailNotifications', value)
                 "
               />
             </div>
@@ -64,12 +114,10 @@
                   Receive updates and alerts via browser
                 </p>
               </div>
-              <input
-                type="checkbox"
-                class="toggle"
-                :checked="settings.pushNotifications"
-                @change="
-                  updateSetting('pushNotifications', $event.target.checked)
+              <ToggleSwitch
+                :modelValue="settings.pushNotifications"
+                @update:modelValue="
+                  (value) => updateSetting('pushNotifications', value)
                 "
               />
             </div>
@@ -90,7 +138,10 @@
                 class="select select-bordered dark:bg-gray-100"
                 :value="settings.profileVisibility"
                 @change="
-                  updateSetting('profileVisibility', $event.target.value)
+                  updateSetting(
+                    'profileVisibility',
+                    ($event.target as HTMLInputElement).value
+                  )
                 "
               >
                 <option value="public">Public</option>
@@ -104,12 +155,10 @@
                 <span class="font-medium">Activity Status</span>
                 <p class="text-sm text-gray-600">Show when you're active</p>
               </div>
-              <input
-                type="checkbox"
-                class="toggle"
-                :checked="settings.showActivityStatus"
-                @change="
-                  updateSetting('showActivityStatus', $event.target.checked)
+              <ToggleSwitch
+                :modelValue="settings.showActivityStatus"
+                @update:modelValue="
+                  (value) => updateSetting('showActivityStatus', value)
                 "
               />
             </div>
@@ -149,7 +198,7 @@
           </div>
         </div>
 
-        <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
           <h4 class="text-lg font-semibold mb-4">Data & Storage</h4>
           <div class="space-y-4">
             <div class="flex flex-col">
@@ -170,41 +219,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Settings {
-  darkMode: boolean;
-  compactMode: boolean;
-  emailNotifications: boolean;
-  pushNotifications: boolean;
-  profileVisibility: "public" | "private" | "contacts";
-  showActivityStatus: boolean;
-  lastPasswordChange: string;
-  twoFactorEnabled: boolean;
-  storageUsed: string;
-  storageTotal: string;
-  storageUsedPercent: number;
-}
-
-interface Props {
-  settings: Settings;
-}
-
-const props = defineProps<Props>();
-const emit = defineEmits<{
-  (e: "update", setting: string, value: any): void;
-  (e: "setup2fa"): void;
-}>();
-
-const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("pt-BR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-};
-
-const updateSetting = (setting: string, value: any) => {
-  emit("update", setting, value);
-};
-</script>
