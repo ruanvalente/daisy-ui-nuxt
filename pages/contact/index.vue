@@ -58,7 +58,9 @@ const handleSubmit = (formData: any) => {
 
 <template>
   <div class="lg:p-4">
-    <Typography as="h2" class="text-2xl lg:text-4xl mb-6 dark:text-gray-950"
+    <Typography
+      as="h2"
+      class="text-2xl lg:text-4xl mb-6 dark:text-gray-950 mt-4"
       >Contact Us</Typography
     >
     <Contact :contact-info="contactInfo" @submit="handleSubmit" />

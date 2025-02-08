@@ -1,3 +1,66 @@
+<script setup lang="ts">
+import BaseInput from "~/components/ui/BaseInput/BaseInput.vue";
+import BaseSelect from "../BaseSelect/BaseSelect.vue";
+
+interface OfficeLocation {
+  name: string;
+  address: string;
+  phone: string;
+  email: string;
+}
+
+interface SocialMedia {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+interface ContactInfo {
+  subjects: string[];
+  officeLocations: OfficeLocation[];
+  businessHours: Record<string, string>;
+  socialMedia: SocialMedia[];
+}
+
+interface FormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+interface Props {
+  contactInfo: ContactInfo;
+}
+
+const { contactInfo } = defineProps<Props>();
+const emit = defineEmits<{
+  (e: "submit", data: FormData): void;
+}>();
+
+const formData = ref<FormData>({
+  name: "",
+  email: "",
+  subject: "",
+  message: "",
+});
+
+const handleSubmit = () => {
+  emit("submit", formData.value);
+  formData.value = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  };
+};
+
+const subjectOptions = contactInfo.subjects.map((subject) => ({
+  value: subject,
+  text: subject,
+}));
+</script>
+
 <template>
   <div class="w-full">
     <div class="grid md:grid-cols-3 gap-6">
@@ -9,48 +72,32 @@
           <form @submit.prevent="handleSubmit" class="space-y-6">
             <div class="grid md:grid-cols-2 gap-4 w-full">
               <div class="form-control w-full">
-                <label class="label w-full my-2">
-                  <span class="label-text dark:text-gray-950">Name</span>
-                </label>
-                <input
+                <BaseInput
+                  label="Name"
                   v-model="formData.name"
                   type="text"
-                  class="input input-bordered w-full dark:bg-gray-100"
                   required
                 />
               </div>
 
               <div class="form-control w-full">
-                <label class="label w-full my-2">
-                  <span class="label-text dark:text-gray-950">Email</span>
-                </label>
-                <input
+                <BaseInput
+                  label="E-mail"
                   v-model="formData.email"
                   type="email"
-                  class="input input-bordered w-full dark:bg-gray-100"
                   required
                 />
               </div>
             </div>
 
             <div class="form-control w-full">
-              <label class="label w-full my-2">
-                <span class="label-text dark:text-gray-950">Subject</span>
-              </label>
-              <select
+              <BaseSelect
+                label="Subject"
                 v-model="formData.subject"
-                class="select select-bordered w-full dark:bg-gray-100"
+                :options="subjectOptions"
+                placeholder="Select a subject"
                 required
-              >
-                <option value="" disabled selected>Select a subject</option>
-                <option
-                  v-for="subject in contactInfo.subjects"
-                  :key="subject"
-                  :value="subject"
-                >
-                  {{ subject }}
-                </option>
-              </select>
+              />
             </div>
 
             <div class="form-control w-full">
@@ -76,7 +123,6 @@
         </div>
       </div>
 
-      <!-- Informações de Contato -->
       <div class="space-y-6">
         <div class="bg-white shadow-md rounded-lg p-6">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
@@ -125,7 +171,7 @@
           </div>
         </div>
 
-        <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Social Media
           </h4>
@@ -146,58 +192,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface OfficeLocation {
-  name: string;
-  address: string;
-  phone: string;
-  email: string;
-}
-
-interface SocialMedia {
-  name: string;
-  url: string;
-  icon: string;
-}
-
-interface ContactInfo {
-  subjects: string[];
-  officeLocations: OfficeLocation[];
-  businessHours: Record<string, string>;
-  socialMedia: SocialMedia[];
-}
-
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-interface Props {
-  contactInfo: ContactInfo;
-}
-
-const props = defineProps<Props>();
-const emit = defineEmits<{
-  (e: "submit", data: FormData): void;
-}>();
-
-const formData = ref<FormData>({
-  name: "",
-  email: "",
-  subject: "",
-  message: "",
-});
-
-const handleSubmit = () => {
-  emit("submit", formData.value);
-  formData.value = {
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  };
-};
-</script>

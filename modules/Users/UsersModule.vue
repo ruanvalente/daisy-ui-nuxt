@@ -5,13 +5,13 @@
       <template #actions="{ item }">
         <div class="flex gap-2">
           <button
-            class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
+            class="btn btn-md hover:bg-gray-900 hover:text-white"
             @click="openEditModal(item)"
           >
             Edit
           </button>
           <button
-            class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
+            class="btn btn-md hover:bg-gray-900 hover:text-white"
             @click="openDeleteModal(item)"
           >
             Delete

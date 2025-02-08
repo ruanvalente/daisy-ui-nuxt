@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ["@nuxt/fonts", "@nuxt/test-utils/module"],
+  modules: ["@nuxt/fonts", "@nuxt/test-utils/module", "@vueuse/nuxt"],
   vite: {
     plugins: [tailwindcss()],
   },
@@ -14,11 +14,6 @@ export default defineNuxtConfig({
     "~/assets/css/transitions.css",
   ],
   app: {
-    // head: {
-    //   htmlAttrs: {
-    //     "data-theme": "dark",
-    //   },
-    // },
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
   },
