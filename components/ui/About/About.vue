@@ -1,8 +1,8 @@
 <template>
-  <div class="w-full">
+  <div class="w-full" role="main">
     <div class="grid md:grid-cols-3 gap-6">
       <div class="md:col-span-2 space-y-6">
-        <div class="bg-white shadow-md rounded-lg p-6">
+        <section class="bg-white shadow-md rounded-lg p-6">
           <div class="flex flex-col md:flex-row gap-6 items-start">
             <div class="avatar">
               <div class="w-32 h-32 rounded-lg">
@@ -25,9 +25,9 @@
               </p>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="bg-white shadow-md rounded-lg p-6 my-4">
+        <section class="bg-white shadow-md rounded-lg p-6 my-4">
           <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
             Hard Skills
           </h4>
@@ -36,6 +36,7 @@
               v-for="(skill, index) in about.hardSkills"
               :key="index"
               class="flex items-center gap-3 p-4 rounded-lg border hover:bg-gray-50 cursor-pointer transition-all group"
+              aria-label="Skill: {{ skill }}"
             >
               <span
                 class="pi pi-check text-gray-950 group-hover:text-gray-900"
@@ -46,9 +47,9 @@
               >
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="bg-white shadow-md rounded-lg p-6">
+        <section class="bg-white shadow-md rounded-lg p-6">
           <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
             Soft Skills
           </h4>
@@ -57,6 +58,7 @@
               v-for="(skill, index) in about.softSkills"
               :key="index"
               class="flex items-center gap-3 p-4 rounded-lg border hover:bg-gray-50 cursor-pointer transition-all group"
+              aria-label="Skill: {{ skill }}"
             >
               <span
                 class="pi pi-heart text-gray-950 group-hover:text-gray-900"
@@ -66,9 +68,9 @@
               }}</span>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="md:hidden bg-white shadow-md rounded-lg p-6">
+        <section class="md:hidden bg-white shadow-md rounded-lg p-6">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Experience Highlights
           </h4>
@@ -82,9 +84,9 @@
               <span class="text-gray-600">{{ highlight }}</span>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="bg-white shadow-md rounded-lg p-6">
+        <section class="bg-white shadow-md rounded-lg p-6">
           <h4 class="text-xl font-semibold mb-4 dark:text-gray-950">
             About the Project
           </h4>
@@ -97,11 +99,11 @@
               {{ paragraph }}
             </p>
           </div>
-        </div>
+        </section>
       </div>
 
       <div class="space-y-6">
-        <div class="hidden md:block bg-white shadow-md rounded-lg p-6">
+        <section class="hidden md:block bg-white shadow-md rounded-lg p-6">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Experience Highlights
           </h4>
@@ -115,9 +117,9 @@
               <span class="text-gray-600">{{ highlight }}</span>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
+        <section class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">Connect</h4>
           <div class="flex gap-4">
             <a
@@ -131,7 +133,7 @@
               <span :class="social.icon"></span>
             </a>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>

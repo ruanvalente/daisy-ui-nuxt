@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Login from "@/modules/Login/LoginModule.vue";
+import LazyLogin from "@/modules/Login/LoginModule.vue";
 
 definePageMeta({
   layout: "login",
@@ -8,5 +8,5 @@ definePageMeta({
 </script>
 
 <template>
-  <Login />
+  <LazyLogin />
 </template>

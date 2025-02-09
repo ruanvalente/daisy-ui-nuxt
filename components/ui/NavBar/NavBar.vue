@@ -38,7 +38,9 @@ onClickOutside(target, () => {
           />
         </svg>
       </div>
-      <NuxtLink to="/" class="btn btn-ghost text-xl">Logo</NuxtLink>
+      <NuxtLink to="/" class="btn btn-ghost text-xl" aria-label="Go to Home"
+        >Logo</NuxtLink
+      >
     </div>
     <div class="flex gap-8">
       <div class="form-control">
@@ -62,13 +64,23 @@ onClickOutside(target, () => {
           class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
         >
           <li>
-            <NuxtLink to="/profile" class="justify-between">
+            <NuxtLink
+              to="/profile"
+              class="justify-between"
+              aria-label="Go to Profile"
+            >
               Profile
               <span class="badge">New</span>
             </NuxtLink>
           </li>
-          <li><NuxtLink to="/settings">Settings</NuxtLink></li>
-          <li><button @click="handleSignOut">Logout</button></li>
+          <li>
+            <NuxtLink to="/settings" aria-label="Go to Settings"
+              >Settings</NuxtLink
+            >
+          </li>
+          <li>
+            <button @click="handleSignOut" aria-label="Logout">Logout</button>
+          </li>
         </ul>
       </div>
     </div>

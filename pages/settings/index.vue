@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Typography from "~/components/ui/Typography/Typography.vue";
-import Settings from "~/components/ui/Settings/Settings.vue";
+import LazySettings from "~/components/ui/Settings/Settings.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -42,7 +42,7 @@ const handleSetup2FA = () => {
       class="mt-4 text-2xl lg:text-4xl mb-6 dark:text-gray-950"
       >Settings</Typography
     >
-    <Settings
+    <LazySettings
       :settings="settings"
       @update="handleSettingUpdate"
       @setup2fa="handleSetup2FA"

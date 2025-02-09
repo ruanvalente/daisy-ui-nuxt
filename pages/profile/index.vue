@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Typography from "~/components/ui/Typography/Typography.vue";
-import Profile from "~/components/ui/Profile/Profile.vue";
+import LazyProfile from "~/components/ui/Profile/Profile.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -29,6 +29,6 @@ const handleSave = (formData: any) => {
       class="text-2xl lg:text-4xl mb-6 dark:text-gray-950 mt-4"
       >Profile</Typography
     >
-    <Profile :user-data="userData" @save="handleSave" />
+    <LazyProfile :user-data="userData" @save="handleSave" />
   </div>
 </template>

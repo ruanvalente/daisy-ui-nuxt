@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Typography from "~/components/ui/Typography/Typography.vue";
-import Dashboard from "~/modules/Dashboard/DashboardModule.vue";
+import LazyDashboard from "~/modules/Dashboard/DashboardModule.vue";
 definePageMeta({
   middleware: "auth",
 });
@@ -12,6 +12,6 @@ definePageMeta({
       >Dashboard</Typography
     >
     <p class="mt-4 dark:text-gray-950">This is the dashboard page</p>
-    <Dashboard class="mt-8" />
+    <LazyDashboard class="mt-8" />
   </div>
 </template>
