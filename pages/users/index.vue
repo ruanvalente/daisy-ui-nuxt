@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Typography from "~/components/ui/Typography/Typography.vue";
-import UsersModule from "~/modules/Users/UsersModule.vue";
+import LazyUsersModule from "~/modules/Users/UsersModule.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -13,6 +13,6 @@ definePageMeta({
       >Users</Typography
     >
     <p class="mt-4 dark:text-gray-950">This is the user page</p>
-    <UsersModule class="mt-8" />
+    <LazyUsersModule class="mt-8" />
   </div>
 </template>

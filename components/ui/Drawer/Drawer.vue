@@ -33,6 +33,7 @@ onClickOutside(target, () => {
         >
           <li class="py-2" v-for="item in DRAWER_CONFIG" :key="item.name">
             <NuxtLink
+              :aria-label="`Go to ${item.name}`"
               :to="item.to"
               :class="{
                 'bg-base-300': router.currentRoute.value.path === item.to,

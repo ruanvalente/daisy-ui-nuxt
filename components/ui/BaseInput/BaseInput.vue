@@ -29,6 +29,7 @@ const attrs = useAttrs();
       "
       :class="['input input-bordered w-full dark:bg-gray-100', inputClass]"
       :required="required"
+      :aria-label="label ? undefined : 'Input for ' + label"
       v-bind="attrs"
     />
   </div>
