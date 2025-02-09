@@ -1,6 +1,7 @@
 # DaisyUI Nuxt Application
 
-![DaisyUI Nuxt](https://raw.githubusercontent.com/ruanvalente/daisy-ui-nuxt/main/public/preview.png)
+![image](https://github.com/user-attachments/assets/eecd955f-c066-46d6-a075-f6ea5a3c0e6e)
+
 
 ## About the Project
 
