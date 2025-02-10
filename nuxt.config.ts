@@ -9,6 +9,8 @@ export default defineNuxtConfig({
     "@nuxt/test-utils/module",
     "@nuxtjs/color-mode",
     "@nuxtjs/tailwindcss",
+    "@clerk/nuxt",
+    "@nuxt/image",
   ],
   css: [
     "primeicons/primeicons.css",

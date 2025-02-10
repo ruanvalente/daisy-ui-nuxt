@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { useAuth, useUser } from "@clerk/nuxt/composables";
 import { onClickOutside } from "@vueuse/core";
-
+import { ref } from "vue";
+import LazyImageFallback from "~/components/ui/ImageFallback/ImageFallback.vue";
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
-import { useLogin } from "~/composable/useLogin/useLogin";
 
 const drawerOpen = useDrawer();
 const target = ref(null);
-const { handleSignOut } = useLogin();
+const { signOut } = useAuth();
+const { user } = useUser();
 
 onClickOutside(target, () => {
-  drawerOpen.value = false;
+	drawerOpen.value = false;
 });
 </script>
 
 <template>
-  <div class="navbar bg-base-100 shadow" ref="target">
+  <div class="shadow navbar bg-base-100" ref="target">
     <div class="flex-1">
       <div
         tabindex="0"
@@ -25,7 +26,7 @@ onClickOutside(target, () => {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
+          class="w-5 h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -38,7 +39,7 @@ onClickOutside(target, () => {
           />
         </svg>
       </div>
-      <NuxtLink to="/" class="btn btn-ghost text-xl" aria-label="Go to Home"
+      <NuxtLink to="/" class="text-xl btn btn-ghost" aria-label="Go to Home"
         >Logo</NuxtLink
       >
     </div>
@@ -47,16 +48,14 @@ onClickOutside(target, () => {
         <input
           type="text"
           placeholder="Search"
-          class="input input-bordered w-24 md:w-auto"
+          class="w-24 input input-bordered md:w-auto"
         />
       </div>
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <img
-              alt="User Avatar"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-            />
+            <LazyImageFallback v-if="!user?.imageUrl" />
+            <NuxtImg :src="user?.imageUrl" :alt="user?.fullName as string" :aria-label="user?.fullName" />
           </div>
         </div>
         <ul
@@ -79,7 +78,16 @@ onClickOutside(target, () => {
             >
           </li>
           <li>
-            <button @click="handleSignOut" aria-label="Logout">Logout</button>
+            <button
+              @click="
+                signOut({
+                  redirectUrl: '/login',
+                })
+              "
+              aria-label="Logout"
+            >
+              Logout
+            </button>
           </li>
         </ul>
       </div>
