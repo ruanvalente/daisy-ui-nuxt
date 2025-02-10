@@ -1,69 +1,67 @@
 <script setup lang="ts">
-import Modal from "~/components/ui/Modal/Modal.vue";
 import { useUser } from "@clerk/nuxt/composables";
+import Modal from "~/components/ui/Modal/Modal.vue";
 
 interface UserData {
-  name: string;
-  email: string;
-  role: string;
-  avatar: string;
-  joinDate: string;
-  lastLogin: string;
-  department: string;
-  status: string;
+	name: string;
+	email: string;
+	role: string;
+	avatar: string;
+	joinDate: string;
+	lastLogin: string;
+	department: string;
+	status: string;
 }
 
 interface FormData {
-  name: string;
-  email: string;
-  department: string;
-  avatar: string;
+	name: string;
+	email: string;
+	department: string;
+	avatar: string;
 }
 
 interface Props {
-  userData: UserData;
-  onSave?: (data: FormData) => void;
+	userData: UserData;
+	onSave?: (data: FormData) => void;
 }
 
 const { user } = useUser();
 const props = defineProps<Props>();
-const emit = defineEmits<{
-  (e: "save", data: FormData): void;
-}>();
+const emit = defineEmits<(e: "save", data: FormData) => void>();
 
 const isModalOpen = ref(false);
 const formData = ref<FormData>({
-  name: "",
-  email: "",
-  department: "",
-  avatar: "",
+	name: "",
+	email: "",
+	department: "",
+	avatar: "",
 });
 
 const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("pt-BR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+	return new Date(date).toLocaleDateString("pt-BR", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
 };
 
 const openEditModal = () => {
-  formData.value = {
-    name: props.userData.name,
-    email: props.userData.email,
-    department: props.userData.department,
-    avatar: props.userData.avatar,
-  };
-  isModalOpen.value = true;
+	formData.value = {
+		name: props.userData.name,
+		email: props.userData.email,
+		department: props.userData.department,
+		avatar: props.userData.avatar,
+	};
+	isModalOpen.value = true;
 };
 
 const closeModal = () => {
-  isModalOpen.value = false;
+	isModalOpen.value = false;
 };
 
 const handleSubmit = () => {
-  emit("save", formData.value);
-  closeModal();
+	emit("save", formData.value);
+	closeModal();
 };
 </script>
 
@@ -75,14 +73,14 @@ const handleSubmit = () => {
           <div class="avatar">
             <div class="w-20 h-20 rounded-full">
               <NuxtImg
-                :src="user?.imageUrl"
-                :alt="user?.fullName as string"
-                class="object-cover"
+                  class="object-cover"
+                  :alt="user?.fullName as string"
+                  :src="user?.imageUrl ?? 'https://api.dicebear.com/7.x/avataaars/svg?seed=User1'"
               />
             </div>
           </div>
           <div>
-            <h3 class="text-2xl font-semibold">{{ user?.fullName }}</h3>
+            <h3 class="text-2xl font-semibold">{{ user?.fullName ?? 'Guest' }}</h3>
             <div class="px-4 mt-2 text-base text-white badge bg-gray-950">
               {{ userData.role }}
             </div>

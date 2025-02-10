@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Typography from "~/components/ui/Typography/Typography.vue";
+import LazyTypography from "~/components/ui/Typography/Typography.vue";
 import LazyUsersModule from "~/modules/Users/UsersModule.vue";
 
 definePageMeta({
@@ -9,8 +9,8 @@ definePageMeta({
 
 <template>
   <div>
-    <Typography as="h2" class="text-2xl lg:text-4xl mt-4 dark:text-gray-950"
-      >Users</Typography
+    <LazyTypography as="h2" class="text-2xl lg:text-4xl mt-4 dark:text-gray-950"
+      >Users</LazyTypography
     >
     <p class="mt-4 dark:text-gray-950">This is the user page</p>
     <LazyUsersModule class="mt-8" />

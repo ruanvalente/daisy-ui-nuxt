@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { useAuth, useUser } from "@clerk/nuxt/composables";
 import { onClickOutside } from "@vueuse/core";
-import { useUser, useAuth } from "@clerk/nuxt/composables";
+import { ref } from "vue";
+import LazyImageFallback from "~/components/ui/ImageFallback/ImageFallback.vue";
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 
 const drawerOpen = useDrawer();
@@ -10,7 +11,7 @@ const { signOut } = useAuth();
 const { user } = useUser();
 
 onClickOutside(target, () => {
-  drawerOpen.value = false;
+	drawerOpen.value = false;
 });
 </script>
 
@@ -53,7 +54,8 @@ onClickOutside(target, () => {
       <div class="dropdown dropdown-end">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
           <div class="w-10 rounded-full">
-            <NuxtImg alt="User Avatar" :src="user?.imageUrl" />
+            <LazyImageFallback v-if="!user?.imageUrl" />
+            <NuxtImg :src="user?.imageUrl" :alt="user?.fullName as string" :aria-label="user?.fullName" />
           </div>
         </div>
         <ul
