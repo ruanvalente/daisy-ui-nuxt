@@ -1,10 +1,16 @@
 <script setup lang="ts">
+import {
+  SignedOut,
+  SignIn,
+  SignInButton,
+  UserButton,
+} from "@clerk/nuxt/components";
 import { useLogin } from "~/composable/useLogin/useLogin";
-const { loading, handleSignIn } = useLogin();
+// const { loading, handleSignIn } = useLogin();
 </script>
 
 <template>
-  <div class="flex justify-center items-center">
+  <!-- <div class="flex items-center justify-center">
     <button
       v-if="!loading"
       class="btn sm:btn-sm md:btn-md lg:btn-lg"
@@ -13,11 +19,11 @@ const { loading, handleSignIn } = useLogin();
       <span>Sign In</span>
     </button>
     <button
-      class="btn sm:btn-sm md:btn-md lg:btn-lg flex items-center"
+      class="flex items-center btn sm:btn-sm md:btn-md lg:btn-lg"
       v-if="loading"
     >
       <svg
-        class="custom-spinner h-5 w-5 mr-3 text-black dark:text-gray-700"
+        class="w-5 h-5 mr-3 text-black custom-spinner dark:text-gray-700"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -38,7 +44,14 @@ const { loading, handleSignIn } = useLogin();
       </svg>
       Processing…
     </button>
-  </div>
+  </div> -->
+
+  <SignedOut>
+    <SignInButton />
+  </SignedOut>
+  <SignIn>
+    <UserButton />
+  </SignIn>
 </template>
 
 <style lang="css" scoped>
