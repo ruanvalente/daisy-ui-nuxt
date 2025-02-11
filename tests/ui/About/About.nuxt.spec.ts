@@ -33,7 +33,7 @@ const about = {
     },
   ],
 };
-describe("AboutComponent", () => {
+describe("<About />", () => {
   it("renders the about section correctly", () => {
     const wrapper = mount(About, {
       props: { about },
