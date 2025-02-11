@@ -1,5 +1,8 @@
 # DaisyUI Nuxt Application
 
+![image](https://github.com/user-attachments/assets/0c0ea599-3d3c-42c8-a074-aa121fa227ac)
+
+
 ![image](https://github.com/user-attachments/assets/eecd955f-c066-46d6-a075-f6ea5a3c0e6e)
 
 
