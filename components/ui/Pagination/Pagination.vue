@@ -10,7 +10,12 @@
       <select
         class="select select-bordered w-full max-w-xs"
         :value="itemsPerPage"
-        @change="$emit('update:itemsPerPage', Number($event.target.value))"
+        @change="
+          $emit(
+            'update:itemsPerPage',
+            Number(($event.target as HTMLSelectElement).value)
+          )
+        "
       >
         <option
           v-for="option in itemsPerPageOptions"

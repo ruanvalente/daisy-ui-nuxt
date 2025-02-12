@@ -20,7 +20,7 @@ interface Props {
   settings: Settings;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 const emit = defineEmits<{
   (e: "update", setting: string, value: any): void;
   (e: "setup2fa"): void;
