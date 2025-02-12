@@ -1,3 +1,5 @@
+import { onMounted, onBeforeUnmount } from "vue";
+import { useState } from "#app";
 export const useDrawer = () => {
   const drawerOpen = useState("drawerOpen", () => false);
   const updateDrawerState = () => {
