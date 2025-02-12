@@ -36,7 +36,8 @@
       :class="{ 'w-full md:w-auto': !showExtras }"
     >
       <button
-        class="px-4 rounded btn-md text-white"
+          aria-label="Previous"
+          class="px-4 rounded btn-md text-white"
         :class="{
           'bg-gray-300 dark:btn-outline': currentPage === 1,
           'bg-gray-950': currentPage !== 1,
@@ -61,6 +62,7 @@
       </button>
 
       <button
+          aria-label="Next"
         :class="{
           'bg-gray-300 dark:btn-outline': currentPage === totalPages,
           'bg-gray-950': currentPage !== totalPages,
@@ -79,51 +81,51 @@
 import { computed } from "vue";
 
 interface Props {
-  currentPage: number;
-  totalPages: number;
-  maxVisiblePages?: number;
-  itemsPerPage?: number;
-  totalItems?: number;
-  showExtras?: boolean;
+	currentPage: number;
+	totalPages: number;
+	maxVisiblePages?: number;
+	itemsPerPage?: number;
+	totalItems?: number;
+	showExtras?: boolean;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  maxVisiblePages: 5,
-  showExtras: false,
+	maxVisiblePages: 5,
+	showExtras: false,
 });
 
 defineEmits<{
-  "update:currentPage": [page: number];
-  "update:itemsPerPage": [items: number];
+	"update:currentPage": [page: number];
+	"update:itemsPerPage": [items: number];
 }>();
 
 const itemsPerPageOptions = [5, 10, 15, 20, 25, 30];
 
 const startItem = computed(() => {
-  if (!props.itemsPerPage || !props.totalItems) return 0;
-  return (props.currentPage - 1) * props.itemsPerPage + 1;
+	if (!props.itemsPerPage || !props.totalItems) return 0;
+	return (props.currentPage - 1) * props.itemsPerPage + 1;
 });
 
 const endItem = computed(() => {
-  if (!props.itemsPerPage || !props.totalItems) return 0;
-  const end = props.currentPage * props.itemsPerPage;
-  return end > props.totalItems ? props.totalItems : end;
+	if (!props.itemsPerPage || !props.totalItems) return 0;
+	const end = props.currentPage * props.itemsPerPage;
+	return end > props.totalItems ? props.totalItems : end;
 });
 
 const displayedPages = computed(() => {
-  const pages: number[] = [];
-  const halfVisible = Math.floor(props.maxVisiblePages / 2);
-  let start = Math.max(1, props.currentPage - halfVisible);
-  let end = Math.min(props.totalPages, start + props.maxVisiblePages - 1);
+	const pages: number[] = [];
+	const halfVisible = Math.floor(props.maxVisiblePages / 2);
+	let start = Math.max(1, props.currentPage - halfVisible);
+	const end = Math.min(props.totalPages, start + props.maxVisiblePages - 1);
 
-  if (end - start + 1 < props.maxVisiblePages) {
-    start = Math.max(1, end - props.maxVisiblePages + 1);
-  }
+	if (end - start + 1 < props.maxVisiblePages) {
+		start = Math.max(1, end - props.maxVisiblePages + 1);
+	}
 
-  for (let i = start; i <= end; i++) {
-    pages.push(i);
-  }
+	for (let i = start; i <= end; i++) {
+		pages.push(i);
+	}
 
-  return pages;
+	return pages;
 });
 </script>
