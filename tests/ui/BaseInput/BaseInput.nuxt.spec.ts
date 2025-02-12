@@ -101,7 +101,6 @@ describe("<BaseInput />", () => {
 
     const input = wrapper.find("input");
 
-    console.log("input", input.attributes("placeholder"));
     expect(input.attributes("placeholder")).toBe("Enter text");
     expect(input.attributes("data-testid")).toBe("custom-input");
     expect(input.attributes("disabled")).toBeDefined();
