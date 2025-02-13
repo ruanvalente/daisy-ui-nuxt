@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from "vue";
+import { defineEmits, defineProps } from "vue";
 
 defineProps<{
-  modelValue: boolean;
+	modelValue: boolean;
 }>();
 
-const emit = defineEmits<{
-  (e: "update:modelValue", value: boolean): void;
-}>();
+const emit = defineEmits<(e: "update:modelValue", value: boolean) => void>();
 
 const onChange = (event: Event) => {
-  const target = event.target as HTMLInputElement;
-  emit("update:modelValue", target.checked);
+	const target = event.target as HTMLInputElement;
+	emit("update:modelValue", target.checked);
 };
 </script>
 
