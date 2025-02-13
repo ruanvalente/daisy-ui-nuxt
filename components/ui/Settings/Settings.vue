@@ -1,54 +1,55 @@
 <script setup lang="ts">
-import { useTheme } from "~/composable/useTheme/useTheme";
+import { onMounted, watch } from "vue";
 import ToggleSwitch from "~/components/ui/ToggleSwitch/ToggleSwitch.vue";
+import { useTheme } from "~/composable/useTheme/useTheme";
 
 export interface Settings {
-  darkMode: boolean;
-  compactMode: boolean;
-  emailNotifications: boolean;
-  pushNotifications: boolean;
-  profileVisibility: "public" | "private" | "contacts";
-  showActivityStatus: boolean;
-  lastPasswordChange: string;
-  twoFactorEnabled: boolean;
-  storageUsed: string;
-  storageTotal: string;
-  storageUsedPercent: number;
+	darkMode: boolean;
+	compactMode: boolean;
+	emailNotifications: boolean;
+	pushNotifications: boolean;
+	profileVisibility: "public" | "private" | "contacts";
+	showActivityStatus: boolean;
+	lastPasswordChange: string;
+	twoFactorEnabled: boolean;
+	storageUsed: string;
+	storageTotal: string;
+	storageUsedPercent: number;
 }
 
 interface Props {
-  settings: Settings;
+	settings: Settings;
 }
 
 defineProps<Props>();
 const emit = defineEmits<{
-  (e: "update", setting: string, value: any): void;
-  (e: "setup2fa"): void;
+	(e: "update", setting: string, value: any): void;
+	(e: "setup2fa"): void;
 }>();
 
 const { isDarkMode, updateTheme } = useTheme();
 
 onMounted(() => {
-  emit("update", "darkMode", isDarkMode.value);
+	emit("update", "darkMode", isDarkMode.value);
 });
 
 watch(isDarkMode, (newVal) => {
-  emit("update", "darkMode", newVal);
+	emit("update", "darkMode", newVal);
 });
 
 const formatDate = (date: string) => {
-  return new Date(date).toLocaleDateString("pt-BR", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+	return new Date(date).toLocaleDateString("pt-BR", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
 };
 
 const updateSetting = (setting: string, value: any) => {
-  if (setting === "darkMode") {
-    updateTheme(value);
-  }
-  emit("update", setting, value);
+	if (setting === "darkMode") {
+		updateTheme(value);
+	}
+	emit("update", setting, value);
 };
 </script>
 
