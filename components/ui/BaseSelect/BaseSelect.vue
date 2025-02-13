@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, useAttrs } from "vue";
 
-const props = defineProps<{
+defineProps<{
   modelValue: string;
   label?: string;
   options: { value: string; text: string }[];

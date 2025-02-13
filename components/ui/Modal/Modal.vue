@@ -1,28 +1,3 @@
-<template>
-  <dialog :id="id" class="modal" :class="{ 'modal-open': isOpen }">
-    <div :class="['modal-box', width]">
-      <h3
-        :class="[
-          'font-bold mb-4 text-center',
-          { 'text-error': variant === 'text-red-500' },
-          titleSize,
-        ]"
-      >
-        {{ title }}
-      </h3>
-      <div class="modal-content">
-        <slot></slot>
-      </div>
-      <div :class="['modal-action', { 'justify-center gap-4': centerActions }]">
-        <slot name="actions"></slot>
-      </div>
-    </div>
-    <div class="modal-backdrop bg-black/50" @click="onClose">
-      <button class="cursor-default">close</button>
-    </div>
-  </dialog>
-</template>
-
 <script setup lang="ts">
 defineProps({
   id: {
@@ -64,3 +39,28 @@ const onClose = () => {
   emit("close");
 };
 </script>
+
+<template>
+  <dialog :id="id" class="modal" :class="{ 'modal-open': isOpen }">
+    <div :class="['modal-box', width]">
+      <h3
+        :class="[
+          'font-bold mb-4 text-center',
+          { 'text-error': variant === 'text-red-500' },
+          titleSize,
+        ]"
+      >
+        {{ title }}
+      </h3>
+      <div class="modal-content">
+        <slot></slot>
+      </div>
+      <div :class="['modal-action', { 'justify-center gap-4': centerActions }]">
+        <slot name="actions"></slot>
+      </div>
+    </div>
+    <div class="modal-backdrop bg-black/50" @click="onClose">
+      <button class="cursor-default">close</button>
+    </div>
+  </dialog>
+</template>

@@ -27,7 +27,10 @@
           </div>
         </section>
 
-        <section class="bg-white shadow-md rounded-lg p-6 my-4">
+        <section
+          class="bg-white shadow-md rounded-lg p-6 my-4"
+          data-testid="hard-skills"
+        >
           <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
             Hard Skills
           </h4>
@@ -49,7 +52,10 @@
           </div>
         </section>
 
-        <section class="bg-white shadow-md rounded-lg p-6">
+        <section
+          class="bg-white shadow-md rounded-lg p-6"
+          data-testid="soft-skills"
+        >
           <h4 class="text-xl font-semibold mb-6 dark:text-gray-950">
             Soft Skills
           </h4>
@@ -59,9 +65,11 @@
               :key="index"
               class="flex items-center gap-3 p-4 rounded-lg border hover:bg-gray-50 cursor-pointer transition-all group"
               aria-label="Skill: {{ skill }}"
+              :data-testid="`soft-skill-${index}`"
             >
               <span
                 class="pi pi-heart text-gray-950 group-hover:text-gray-900"
+                :data-testid="`soft-skill-icon-${index}`"
               ></span>
               <span class="text-gray-700 group-hover:text-gray-900">{{
                 skill
@@ -70,7 +78,7 @@
           </div>
         </section>
 
-        <section class="md:hidden bg-white shadow-md rounded-lg p-6">
+        <section class="md:hidden bg-white shadow-md rounded-lg p-6" data-testid="experience-highlights-mobile">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Experience Highlights
           </h4>
@@ -86,7 +94,10 @@
           </div>
         </section>
 
-        <section class="bg-white shadow-md rounded-lg p-6">
+        <section
+          class="bg-white shadow-md rounded-lg p-6"
+          data-testid="project-description"
+        >
           <h4 class="text-xl font-semibold mb-4 dark:text-gray-950">
             About the Project
           </h4>
@@ -100,10 +111,54 @@
             </p>
           </div>
         </section>
+
+        <section 
+          class="bg-white shadow-md rounded-lg p-6 space-y-4"
+          data-testid="connect"
+        >
+          <h4 class="text-xl font-semibold dark:text-gray-950">
+            Connect with Me
+          </h4>
+          <div class="flex space-x-4">
+            <a 
+              v-for="link in about.socialLinks" 
+              :key="link.name"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 hover:text-gray-950 transition-colors flex items-center"
+            >
+              <span :class="link.icon" class="mr-2"></span>
+              <span class="sr-only">{{ link.name }}</span>
+            </a>
+          </div>
+        </section>
+
+        <section 
+          class="bg-white shadow-md rounded-lg p-6 space-y-4"
+          data-testid="connect"
+        >
+          <h4 class="text-xl font-semibold dark:text-gray-950">
+            Connect with Me
+          </h4>
+          <div class="flex space-x-4">
+            <a 
+              v-for="link in about.socialLinks" 
+              :key="link.name"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 hover:text-gray-950 transition-colors flex items-center"
+            >
+              <span :class="link.icon" class="mr-2"></span>
+              <span class="sr-only">{{ link.name }}</span>
+            </a>
+          </div>
+        </section>
       </div>
 
       <div class="space-y-6">
-        <section class="hidden md:block bg-white shadow-md rounded-lg p-6">
+        <section class="hidden md:block bg-white shadow-md rounded-lg p-6" data-testid="experience-highlights-desktop">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Experience Highlights
           </h4>

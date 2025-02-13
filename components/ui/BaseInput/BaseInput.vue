@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, useAttrs } from "vue";
 
-const props = defineProps<{
+defineProps<{
   modelValue: string;
   label?: string;
   type?: string;
@@ -9,7 +9,7 @@ const props = defineProps<{
   required?: boolean;
 }>();
 
-const emit = defineEmits<{
+defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
