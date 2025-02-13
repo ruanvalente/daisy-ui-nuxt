@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useUser } from "@clerk/nuxt/composables";
+import { ref } from "vue";
 import Modal from "~/components/ui/Modal/Modal.vue";
 
 interface UserData {
@@ -108,6 +109,7 @@ const handleSubmit = () => {
 
         <div class="flex justify-end pt-4 border-t">
           <button
+              aria-label="Edit profile"
             class="btn btn-md hover:bg-gray-900 hover:text-white dark:btn-outline"
             @click="openEditModal"
           >
@@ -193,12 +195,13 @@ const handleSubmit = () => {
         </div>
 
         <div class="modal-action">
-          <button type="button" class="btn btn-ghost" @click="closeModal">
+          <button type="button" class="btn btn-ghost" @click="closeModal" aria-label="Cancel action">
             Cancel
           </button>
           <button
             type="submit"
             class="btn btn-md hover:bg-gray-900 hover:text-white"
+            aria-label="Save changes"
           >
             Save Changes
           </button>
