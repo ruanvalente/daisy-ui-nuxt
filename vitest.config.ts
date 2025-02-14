@@ -24,8 +24,18 @@ export default defineConfig({
 		},
 		coverage: {
 			provider: "v8",
-			reporter: ["html"],
+			reporter: ["text", "json", "html"],
 			reportsDirectory: "./tests/coverage",
+			include: ["components/**/*.{js,ts,jsx,tsx,vue}", "composable/**/*.{js,ts,jsx,tsx,vue}"],
+			exclude: [
+				"node_modules/",
+				"tests/",
+				"**/*.d.ts",
+				"**/*.test.{js,ts}",
+				"**/*.spec.{js,ts}",
+				"vite.config.ts",
+			],
+			all: true,
 		},
 	},
 });
