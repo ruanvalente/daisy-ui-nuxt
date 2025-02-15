@@ -1,0 +1,24 @@
+# Dockerfile.test
+FROM node:20.11.1-alpine3.19
+
+WORKDIR /app
+
+# Copy package files
+COPY package*.json ./
+
+# Install all dependencies (including devDependencies)
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Set test environment variables
+ENV NODE_ENV=test
+ENV HOST=0.0.0.0
+ENV PORT=3333
+
+# Expose port
+EXPOSE 3333
+
+# Run tests by default
+CMD ["npm", "run", "dev"]
