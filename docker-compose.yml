@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+      args:
+        - NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        - NUXT_CLERK_SECRET_KEY
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+
+  prod:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+      args:
+        - NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        - NUXT_CLERK_SECRET_KEY
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
