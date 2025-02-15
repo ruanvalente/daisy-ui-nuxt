@@ -14,7 +14,8 @@
 		"coverage": "vitest run --coverage",
 		"coverage:preview": "npx vite preview --outDir tests/coverage",
 		"lint": "biome lint .",
-		"format": "biome format ."
+		"format": "biome format .",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"@clerk/nuxt": "^1.1.2",
