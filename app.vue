@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ABOUT_INFO } from "./constants/About/aboutInfo";
-// test husky
 useSeoMeta({
 	title: `${ABOUT_INFO.name} - ${ABOUT_INFO.role}`,
 	ogTitle: `${ABOUT_INFO.name} - ${ABOUT_INFO.role}`,
