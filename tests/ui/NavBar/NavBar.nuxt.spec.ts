@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import NavBar from "~/components/ui/NavBar/NavBar.vue";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ref } from "vue";
+import NavBar from "~/components/ui/NavBar/NavBar.vue";
 
 vi.mock("@clerk/nuxt/composables", () => ({
   useAuth: () => ({ signOut: vi.fn() }),

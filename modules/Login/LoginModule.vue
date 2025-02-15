@@ -1,5 +1,10 @@
 <script setup lang="ts">
-import { SignIn, SignInButton, SignedOut, UserButton } from "@clerk/nuxt/components";
+import {
+  SignIn,
+  SignInButton,
+  SignedOut,
+  UserButton,
+} from "@clerk/nuxt/components";
 </script>
 
 <template>

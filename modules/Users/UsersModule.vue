@@ -120,10 +120,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { computed, ref } from "vue";
 import Modal from "~/components/ui/Modal/Modal.vue";
-import Table from "~/components/ui/Table/Table.vue";
 import Pagination from "~/components/ui/Pagination/Pagination.vue";
+import Table from "~/components/ui/Table/Table.vue";
 import { useModal } from "~/composable/useModal/useModal";
 
 const headers = [
@@ -140,7 +140,7 @@ const users = ref(
     email: `user${index + 1}@example.com`,
     role: index % 5 === 0 ? "Admin" : "User",
     avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=User${index + 1}`,
-  }))
+  })),
 );
 
 const itemsPerPage = ref(10);
@@ -148,7 +148,7 @@ const currentPage = ref(1);
 const totalItems = computed(() => users.value.length);
 
 const totalPages = computed(() =>
-  Math.ceil(totalItems.value / itemsPerPage.value)
+  Math.ceil(totalItems.value / itemsPerPage.value),
 );
 
 const paginatedUsers = computed(() => {

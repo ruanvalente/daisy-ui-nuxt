@@ -1,6 +1,6 @@
+import { type VueWrapper, mount } from "@vue/test-utils";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import { defineComponent } from "vue";
-import { mount, VueWrapper } from "@vue/test-utils";
-import { describe, it, expect, vi, beforeEach } from "vitest";
 import Drawer from "~/components/ui/Drawer/Drawer.vue";
 
 let wrapper: VueWrapper;

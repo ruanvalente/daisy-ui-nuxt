@@ -35,9 +35,7 @@ interface Props {
 }
 
 const { contactInfo } = defineProps<Props>();
-const emit = defineEmits<{
-  (e: "submit", data: FormData): void;
-}>();
+const emit = defineEmits<(e: "submit", data: FormData) => void>();
 
 const formData = ref<FormData>({
   name: "",

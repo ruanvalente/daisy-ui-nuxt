@@ -3,7 +3,7 @@ import { useUser } from "@clerk/nuxt/composables";
 import LazyTypography from "~/components/ui/Typography/Typography.vue";
 import LazyDashboard from "~/modules/Dashboard/DashboardModule.vue";
 definePageMeta({
-	middleware: "auth",
+  middleware: "auth",
 });
 
 const { user } = useUser();

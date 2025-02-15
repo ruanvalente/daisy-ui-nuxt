@@ -4,26 +4,26 @@ import { ref } from "vue";
 import Modal from "~/components/ui/Modal/Modal.vue";
 
 interface UserData {
-	name: string;
-	email: string;
-	role: string;
-	avatar: string;
-	joinDate: string;
-	lastLogin: string;
-	department: string;
-	status: string;
+  name: string;
+  email: string;
+  role: string;
+  avatar: string;
+  joinDate: string;
+  lastLogin: string;
+  department: string;
+  status: string;
 }
 
-interface FormData {
-	name: string;
-	email: string;
-	department: string;
-	avatar: string;
+export interface FormData {
+  name: string;
+  email: string;
+  department: string;
+  avatar: string;
 }
 
 interface Props {
-	userData: UserData;
-	onSave?: (data: FormData) => void;
+  userData: UserData;
+  onSave?: (data: FormData) => void;
 }
 
 const { user } = useUser();
@@ -32,37 +32,37 @@ const emit = defineEmits<(e: "save", data: FormData) => void>();
 
 const isModalOpen = ref(false);
 const formData = ref<FormData>({
-	name: "",
-	email: "",
-	department: "",
-	avatar: "",
+  name: "",
+  email: "",
+  department: "",
+  avatar: "",
 });
 
 const formatDate = (date: string) => {
-	return new Date(date).toLocaleDateString("pt-BR", {
-		year: "numeric",
-		month: "long",
-		day: "numeric",
-	});
+  return new Date(date).toLocaleDateString("pt-BR", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 };
 
 const openEditModal = () => {
-	formData.value = {
-		name: props.userData.name,
-		email: props.userData.email,
-		department: props.userData.department,
-		avatar: props.userData.avatar,
-	};
-	isModalOpen.value = true;
+  formData.value = {
+    name: props.userData.name,
+    email: props.userData.email,
+    department: props.userData.department,
+    avatar: props.userData.avatar,
+  };
+  isModalOpen.value = true;
 };
 
 const closeModal = () => {
-	isModalOpen.value = false;
+  isModalOpen.value = false;
 };
 
 const handleSubmit = () => {
-	emit("save", formData.value);
-	closeModal();
+  emit("save", formData.value);
+  closeModal();
 };
 </script>
 

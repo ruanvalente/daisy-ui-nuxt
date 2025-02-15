@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
 import { useAuth, useUser } from "@clerk/nuxt/composables";
 import { onClickOutside } from "@vueuse/core";
-import { useDrawer } from "~/composable/useDrawer/useDrawer";
+import { ref } from "vue";
 import LazyImageFallback from "~/components/ui/ImageFallback/ImageFallback.vue";
+import { useDrawer } from "~/composable/useDrawer/useDrawer";
 
 const drawerOpen = useDrawer();
 const target = ref(null);
