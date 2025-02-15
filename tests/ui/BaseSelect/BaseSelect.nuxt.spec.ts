@@ -10,7 +10,7 @@ type TypeProps = {
   selectClass?: string;
   required?: boolean;
   disabled?: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 type BaseSelectType = {

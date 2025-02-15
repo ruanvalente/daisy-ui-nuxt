@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import Typography from "~/components/ui/Typography/Typography.vue";
 import LazyContact from "~/components/ui/Contact/Contact.vue";
+import Typography from "~/components/ui/Typography/Typography.vue";
 import { CONTACT_INFO } from "~/constants/ContactInfo/contactInfo";
 
 definePageMeta({
   middleware: "auth",
 });
 
-const handleSubmit = (formData: any) => {
+const handleSubmit = (formData: unknown) => {
   console.log("Form submitted:", formData);
 };
 </script>

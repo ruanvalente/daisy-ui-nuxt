@@ -4,7 +4,7 @@ import Card from "~/components/ui/Card/Card.vue";
 import { CARD_OPTIONS } from "~/constants/Card/Card";
 
 type TypeProps = {
-  [key: string]: any;
+  [key: string]: unknown;
 };
 
 type CardType = {
@@ -42,7 +42,7 @@ describe("<Card />", () => {
       expect(cardText).toContain(cardOption.title);
 
       const iconElement = cardElement.find(
-        `i.${cardOption.icon.split(" ").join(".")}`
+        `i.${cardOption.icon.split(" ").join(".")}`,
       );
       expect(iconElement.exists()).toBeTruthy();
 
@@ -52,7 +52,7 @@ describe("<Card />", () => {
       const contentElements = cardElement.findAll("p.text-base");
       const contentText = contentElements[1].text();
       expect(contentText).toContain(
-        cardOption.content.split(" ").slice(1).join(" ")
+        cardOption.content.split(" ").slice(1).join(" "),
       );
     });
   });

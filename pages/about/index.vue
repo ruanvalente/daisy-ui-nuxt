@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Typography from "~/components/ui/Typography/Typography.vue";
 import About from "~/components/ui/About/About.vue";
+import Typography from "~/components/ui/Typography/Typography.vue";
 
 import { ABOUT_INFO } from "~/constants/About/aboutInfo";
 

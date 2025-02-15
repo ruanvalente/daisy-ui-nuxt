@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import Navbar from "~/components/ui/NavBar/NavBar.vue";
 import Drawer from "~/components/ui/Drawer/Drawer.vue";
 import Footer from "~/components/ui/Footer/Footer.vue";
+import Navbar from "~/components/ui/NavBar/NavBar.vue";
 </script>
 
 <template>

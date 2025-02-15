@@ -74,14 +74,14 @@ describe("<About />", () => {
     expect(softSkillsSection.exists()).toBe(true);
 
     const softSkills = softSkillsSection.findAll(
-      'div[data-testid^="soft-skill-"]'
+      'div[data-testid^="soft-skill-"]',
     );
     expect(softSkills.length).toBe(about.softSkills.length);
 
     softSkills.forEach((skill, index) => {
       expect(skill.text()).toContain(about.softSkills[index]);
       expect(
-        skill.find(`[data-testid="soft-skill-icon-${index}"]`).exists()
+        skill.find(`[data-testid="soft-skill-icon-${index}"]`).exists(),
       ).toBe(true);
     });
   });
@@ -92,14 +92,14 @@ describe("<About />", () => {
     });
 
     const highlightsSectionMobile = wrapper.find(
-      '[data-testid="experience-highlights-mobile"]'
+      '[data-testid="experience-highlights-mobile"]',
     );
     const highlightsSectionDesktop = wrapper.find(
-      '[data-testid="experience-highlights-desktop"]'
+      '[data-testid="experience-highlights-desktop"]',
     );
 
     expect(
-      highlightsSectionMobile.exists() || highlightsSectionDesktop.exists()
+      highlightsSectionMobile.exists() || highlightsSectionDesktop.exists(),
     ).toBe(true);
 
     const highlightsSection = highlightsSectionMobile.exists()
@@ -123,7 +123,7 @@ describe("<About />", () => {
     });
 
     const projectDescriptionSection = wrapper.find(
-      '[data-testid="project-description"]'
+      '[data-testid="project-description"]',
     );
     expect(projectDescriptionSection.exists()).toBe(true);
 

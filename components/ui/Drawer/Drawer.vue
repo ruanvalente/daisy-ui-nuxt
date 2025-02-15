@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { onClickOutside } from "@vueuse/core";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { onClickOutside } from "@vueuse/core";
 
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 import { DRAWER_CONFIG } from "~/constants/Drawer/Drawer";

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Typography from "~/components/ui/Typography/Typography.vue";
 import LazySettings from "~/components/ui/Settings/Settings.vue";
+import Typography from "~/components/ui/Typography/Typography.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -22,7 +22,7 @@ const settings = ref({
   storageUsedPercent: 25,
 });
 
-const handleSettingUpdate = (setting: string, value: any) => {
+const handleSettingUpdate = (setting: string, value: unknown) => {
   settings.value = {
     ...settings.value,
     [setting]: value,

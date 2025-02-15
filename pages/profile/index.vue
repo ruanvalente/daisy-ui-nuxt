@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Typography from "~/components/ui/Typography/Typography.vue";
 import LazyProfile from "~/components/ui/Profile/Profile.vue";
+import Typography from "~/components/ui/Typography/Typography.vue";
 
 definePageMeta({
   middleware: "auth",
@@ -17,7 +17,7 @@ const userData = {
   status: "Active",
 };
 
-const handleSave = (formData: any) => {
+const handleSave = (formData: unknown) => {
   console.log("Saving profile changes:", formData);
 };
 </script>

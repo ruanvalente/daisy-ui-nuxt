@@ -100,7 +100,7 @@ interface TableHeader {
 
 interface Props {
   headers: TableHeader[];
-  items: any[];
+  items: unknown[];
 }
 
 defineProps<Props>();

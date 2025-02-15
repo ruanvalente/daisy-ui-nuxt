@@ -1,5 +1,5 @@
-import { vi } from "vitest";
 import { config } from "@vue/test-utils";
+import { vi } from "vitest";
 
 vi.mock("#app", async () => {
   const actual = await vi.importActual("#app");

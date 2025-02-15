@@ -13,8 +13,10 @@
 		"test:ui": "vitest --ui",
 		"coverage": "vitest run --coverage",
 		"coverage:preview": "npx vite preview --outDir tests/coverage",
+		"format": "biome format --write .",
+		"format:check": "biome format --check .",
 		"lint": "biome lint .",
-		"format": "biome format .",
+		"lint:fix": "biome check --write .",
 		"prepare": "husky"
 	},
 	"dependencies": {
@@ -32,6 +34,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "^1.9.4",
+		"@commitlint/cli": "^19.7.1",
+		"@commitlint/config-conventional": "^19.7.1",
 		"@nuxt/fonts": "^0.10.3",
 		"@nuxt/test-utils": "^3.15.4",
 		"@types/jest": "^29.5.14",

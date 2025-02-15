@@ -1,5 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname "$0")/h"
-
-echo "Running pre-commit"
-npm run lint && npm run format && npm run test:run
+npm run lint && npm run lint:fix && npm run format && npm run test:run

@@ -1,7 +1,7 @@
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ref } from "vue";
-import { useCookie } from "#app";
 import { useRouter } from "vue-router";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { useCookie } from "#app";
 import { useLogin } from "../../../composable/useLogin/useLogin";
 
 vi.mock("#app", () => ({
@@ -23,11 +23,13 @@ describe("useLogin", () => {
   beforeEach(() => {
     vi.useFakeTimers();
 
-    (useRouter as any).mockReturnValue({
+    // @ts-ignore
+    (useRouter as unknown).mockReturnValue({
       push: vi.fn(),
     } as unknown as ReturnType<typeof useRouter>);
 
-    (useCookie as any).mockReturnValue({
+    // @ts-ignore
+    (useCookie as unknown).mockReturnValue({
       value: ref(null) as Ref<string | null>,
     });
   });

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, useAttrs } from "vue";
+import { defineEmits, defineProps, useAttrs } from "vue";
 
 defineProps<{
   modelValue: string;
@@ -9,9 +9,7 @@ defineProps<{
   required?: boolean;
 }>();
 
-defineEmits<{
-  (e: "update:modelValue", value: string): void;
-}>();
+defineEmits<(e: "update:modelValue", value: string) => void>();
 
 const attrs = useAttrs();
 </script>

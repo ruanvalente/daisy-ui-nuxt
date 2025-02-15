@@ -1,5 +1,5 @@
-import { ref, nextTick } from "vue";
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { nextTick, ref } from "vue";
 import { useDrawer } from "~/composable/useDrawer/useDrawer";
 
 vi.mock("#app", () => ({
@@ -21,10 +21,11 @@ describe("useDrawer", () => {
 
     vi.mock("vue", async () => {
       const actual = await vi.importActual("vue");
+      // @ts-ignore
       return {
-        ...(actual as any),
-        onMounted: (fn: () => void) => fn(),
+        ...(actual as unknown),
         onBeforeUnmount: (fn: () => void) => fn(),
+        onMounted: (fn: () => void) => fn(),
       };
     });
   });

@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import Modal from "~/components/ui/Modal/Modal.vue";
 
 type ModalType = {
@@ -12,7 +12,7 @@ type ModalType = {
   centerActions: boolean;
 };
 
-let modalMockProps = {
+const modalMockProps = {
   title: "Test Modal",
   isOpen: true,
   id: "modal-1",
