@@ -49,6 +49,11 @@ export const ABOUT_INFO = {
       url: "https://twitter.com/ruantux",
       icon: "pi pi-twitter",
     },
+    {
+      name: "Resume",
+      url: "/ruanvalente-resume.pdf",
+      icon: "pi pi-file-pdf",
+    },
   ],
   projectDescription: [
     "Este projeto é uma aplicação web moderna desenvolvida com Nuxt 3, TypeScript e DaisyUI, demonstrando boas práticas de desenvolvimento e padrões de projeto.",
