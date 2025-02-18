@@ -1,10 +1,10 @@
 <template>
   <div
-    class="flex flex-col md:flex-row items-center gap-4 my-4 w-full"
-    :class="{
-      'justify-between': showExtras,
-      'justify-center': !showExtras,
-    }"
+      class="flex flex-col md:flex-row items-center gap-2 md:gap-4 my-4 w-full max-w-screen-lg mx-auto"
+      :class="{
+    'justify-between': showExtras,
+    'justify-center': !showExtras,
+  }"
   >
     <div v-if="showExtras" class="flex items-center gap-4">
       <select
@@ -32,12 +32,12 @@
     </div>
 
     <div
-      class="flex justify-center space-x-1"
+      class="flex justify-center space-x-1 mt-6 lg:mt-0"
       :class="{ 'w-full md:w-auto': !showExtras }"
     >
       <button
           aria-label="Previous"
-          class="px-4 rounded btn-md text-white"
+          class="px-4 rounded btn-sm lg:btn-md text-white"
         :class="{
           'bg-gray-300 dark:btn-outline': currentPage === 1,
           'bg-gray-950': currentPage !== 1,
@@ -51,7 +51,7 @@
       <button
         v-for="page in displayedPages"
         :key="page"
-        class="btn btn-md"
+        class="btn btn-sm lg:btn-md"
         :class="{
           'btn-active': page === currentPage,
           'dark:bg-gray-100 dark:text-gray-950': page === currentPage,
@@ -67,7 +67,7 @@
           'bg-gray-300 dark:btn-outline': currentPage === totalPages,
           'bg-gray-950': currentPage !== totalPages,
         }"
-        class="px-4 rounded btn-md text-white"
+        class="px-4 rounded btn-sm lg:btn-md text-white"
         :disabled="currentPage === totalPages"
         @click="$emit('update:currentPage', currentPage + 1)"
       >
