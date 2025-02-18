@@ -49,7 +49,7 @@ onClickOutside(target, () => {
       </div>
     </div>
 
-    <div class="flex-1 lg:px-8 transition-all duration-500">
+    <div class="flex-1 lg:px-8 transition-all duration-500 max-w-full">
       <slot />
     </div>
   </div>
