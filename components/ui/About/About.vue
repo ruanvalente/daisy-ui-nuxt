@@ -146,7 +146,7 @@ defineProps<Props>();
           <h4 class="text-xl font-semibold dark:text-gray-950">
             Connect with Me
           </h4>
-          <div class="flex space-x-4">
+          <div class="flex space-x-4 justify-center lg:justify-normal">
             <a
                 v-for="link in about.socialLinks"
                 :key="link.name"
@@ -182,7 +182,7 @@ defineProps<Props>();
 
         <section class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">Connect</h4>
-          <div class="flex gap-4">
+          <div class="flex gap-4 justify-between lg:justify-normal">
             <a
                 v-for="social in about.socialLinks"
                 :key="social.name"
