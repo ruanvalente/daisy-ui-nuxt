@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import About from "~/components/ui/About/About.vue";
 
 const about = {
@@ -37,15 +37,28 @@ describe("<About />", () => {
   it("renders the about section correctly", () => {
     const wrapper = mount(About, {
       props: { about },
+      global: {
+        stubs: {
+          NuxtImg: {
+            template: '<img :src="src" :alt="alt" />',
+            props: ["src", "alt"],
+          },
+        },
+      },
     });
 
+    expect(wrapper.find("h3").exists()).toBe(true);
     expect(wrapper.find("h3").text()).toBe(about.name);
+
+    expect(wrapper.find(".badge").exists()).toBe(true);
     expect(wrapper.find(".badge").text()).toBe(about.role);
 
     const avatarImg = wrapper.find("img");
+    console.log("avatarImg", avatarImg);
     expect(avatarImg.attributes("src")).toBe(about.avatar);
     expect(avatarImg.attributes("alt")).toBe(about.name);
 
+    expect(wrapper.find("p").exists()).toBe(true);
     expect(wrapper.find("p").text()).toContain(about.description);
   });
 

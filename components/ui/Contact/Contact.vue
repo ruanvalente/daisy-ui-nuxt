@@ -170,7 +170,7 @@ const subjectOptions = contactInfo.subjects.map((subject) => ({
           </div>
         </div>
 
-        <div class="bg-white shadow-md rounded-lg p-6 mb-8 lg:mb-0">
+        <div class="bg-white shadow-md rounded-lg p-6 lg:mb-0">
           <h4 class="text-lg font-semibold mb-4 dark:text-gray-950">
             Social Media
           </h4>
