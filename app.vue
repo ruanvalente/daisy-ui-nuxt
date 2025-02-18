@@ -19,8 +19,7 @@ useSeoMeta({
 <style lang="css">
 body,
 #__nuxt {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: auto;
+  width: 100%;
+  height: 100%;
 }
 </style>

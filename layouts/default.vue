@@ -12,7 +12,7 @@ import Navbar from "~/components/ui/NavBar/NavBar.vue";
         <div class="flex-1">
           <slot />
         </div>
-        <Footer />
+        <Footer class="mt-8 lg:mt-0" />
       </div>
     </Drawer>
   </div>
